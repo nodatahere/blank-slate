@@ -15,6 +15,8 @@ sudo apt upgrade -y;
 sudo apt install -y xfce4-cpugraph-plugin xfce4-dict xfce4-indicator-plugin xfce4-mailwatch-plugin xfce4-netload-plugin xfce4-notes-plugin xfce4-places-plugin xfce4-power-manager-plugins xfce4-quicklauncher-plugin xfce4-sensors-plugin;
 sudo apt install -y xfce4-systemload-plugin xfce4-verve-plugin xfce4-weather-plugin xfce4-whiskermenu-plugin xfce4-xkb-plugin xfce4-diskperf-plugin
 
+sudo apt install curl; #curl is sometimes not installed by default?
+
 #install programs I use on all my systems
 discordfile=/home/$USER/discord-0.0.4.deb; #set this to the path of your discord .deb file which you downloaded previously because discord's site lacks a direct download link that one can wget
 sudo apt install -y git grive spotify playonlinux steam; #desktop programs
