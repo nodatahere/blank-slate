@@ -65,6 +65,9 @@ rm -rf /home/$USER/.config/xfce4/panel/*; #wipe panel config directory
 tar xvjC /home/$USER/.config/xfce4/panel -f $panel_archive; #extract new config
 xfce4-panel -r; #restart panel to apply changes
 
+#run ethersetup.sh from my LazyDevTools repo
+xfce4-terminal -e "curl https://raw.githubusercontent.com/nodatahere/EthDevTools/master/ethersetup.sh | bash";
+
 #update again and clean up
 sudo apt update;
 sudo apt upgrade;
