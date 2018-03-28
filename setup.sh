@@ -69,7 +69,9 @@ tar xvjC /home/$USER/.config/xfce4/panel -f $panel_archive; #extract new config
 xfce4-panel -r; #restart panel to apply changes
 
 #run ethersetup.sh from my LazyDevTools repo
-xfce4-terminal -e "curl https://raw.githubusercontent.com/nodatahere/EthDevTools/master/ethersetup.sh | bash";
+wget https://raw.githubusercontent.com/nodatahere/EthDevTools/master/ethersetup.sh;
+xfce4-terminal --maximize -e ethersetup.sh;
+rm ethersetup.sh;
 
 #update again and clean up
 sudo apt update;
