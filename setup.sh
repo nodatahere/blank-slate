@@ -30,6 +30,7 @@ sudo apt -f install -y; #because dependencies always seem to have issues when in
 #programs built from github
 git clone https://github.com/Bionus/imgbrd-grabber.git /home/$USER/imgbrd-grabber; #imageboard browser program, danbooru, etc
 /home/$USER/imgbrd-grabber/build.sh; #build imgbrd-grabber
+sudo ln -s /home/brenden/imgbrd-grabber/release/Grabber /usr/bin/imgbrd-grabber; #let grabber be run globally
 
 #create /storage
 sudo mkdir /storage; #/storage is the mount point I use for extra internal drives, maintained as a folder of symlinks on my single-drive systems for consistency's sake
