@@ -70,7 +70,7 @@ xfce4-panel -r; #restart panel to apply changes
 
 #run ethersetup.sh from my LazyDevTools repo
 wget https://raw.githubusercontent.com/nodatahere/EthDevTools/master/ethersetup.sh;
-xfce4-terminal --maximize -e ethersetup.sh;
+xfce4-terminal --maximize -e /home/$USER/ethersetup.sh;
 rm ethersetup.sh;
 
 #update again and clean up
