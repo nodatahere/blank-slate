@@ -60,17 +60,18 @@ grive -a -p $drivefolder; #generate config files for grive
 #configure aliases
 echo "drivesync= '/storage/Google_Drive/sync.sh'" >> .bash_aliases;
 
-#update panel
-sudo killall xfconfd;
+#update panel DOES NOT WORK RIGHT NOW
+#sudo killall xfconfd;
 panel_archive=/home/$USER/Panel_Arrangement.tar.bz2; #path to the panel config archive
 wget https://github.com/nodatahere/blank-slate/raw/master/Panel_Arrangement.tar.bz2 $panel_archive; #download panel config archive
-tar cvfz /home/$USER/panel_backup.tgz /home/$USER/.config/xfce4/panel; #back up panel settings
-rm -rf /home/$USER/.config/xfce4/panel/*; #wipe panel config directory
-mv /home/$USER/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml /home/$USER/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml.old; #back up old panel xml
-wget https://raw.githubusercontent.com/nodatahere/blank-slate/master/xfce4-panel.xml /home/$USER/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml; #apply new panel xml
-chmod 777 /home/$USER/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml;
-tar xvjC /home/$USER/.config/xfce4/panel -f $panel_archive; #extract new config
-xfce4-panel -r; #restart panel to apply changes
+echo "import $panel_archive in the xfce panel settings menu";
+#tar cvfz /home/$USER/panel_backup.tgz /home/$USER/.config/xfce4/panel; #back up panel settings
+#rm -rf /home/$USER/.config/xfce4/panel/*; #wipe panel config directory
+#mv /home/$USER/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml /home/$USER/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml.old; #back up old panel xml
+#wget https://raw.githubusercontent.com/nodatahere/blank-slate/master/xfce4-panel.xml /home/$USER/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml; #apply new panel xml
+#chmod 777 /home/$USER/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml;
+#tar xvjC /home/$USER/.config/xfce4/panel -f $panel_archive; #extract new config
+#xfce4-panel -r; #restart panel to apply changes
 
 #run ethersetup.sh from my LazyDevTools repo
 wget https://raw.githubusercontent.com/nodatahere/EthDevTools/master/ethersetup.sh;
