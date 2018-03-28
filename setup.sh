@@ -19,7 +19,8 @@ sudo apt install curl; #curl is sometimes not installed by default?
 
 #install programs I use on all my systems
 discordfile=/home/$USER/discord-0.0.4.deb; #set this to the path of your discord .deb file which you downloaded previously because discord's site lacks a direct download link that one can wget
-sudo apt install -y git grive spotify playonlinux steam; #desktop programs
+
+sudo apt install -y git grive spotify-client playonlinux steam; #desktop programs
 sudo apt install -y x11vnc ssh; #remote access programs
 
 #programs that lack repos but have .deb files
