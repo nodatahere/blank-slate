@@ -68,16 +68,17 @@ echo "import $panel_archive in the xfce panel settings menu";
 python3 /usr/share/xfpanel-switch/xfpanel-switch/panelconfig.py save /home/$USER/Panel_Backup.tar.bz2; #back up panel settings
 python3 /usr/share/xfpanel-switch/xfpanel-switch/panelconfig.py load $panel_archive; #load panel config from downloaded archive
 
-#run ethersetup.sh from my LazyDevTools repo
-wget https://raw.githubusercontent.com/nodatahere/EthDevTools/master/ethersetup.sh;
-chmod +x ethersetup.sh;
-xfce4-terminal --maximize -e /home/$USER/ethersetup.sh;
-rm ethersetup.sh;
-
 #update again and clean up
 sudo apt update;
 sudo apt upgrade;
 sudo apt update;
 sudo apt upgrade;
 sudo apt autoremove;
+
+#run ethersetup.sh from my LazyDevTools repo
+wget https://raw.githubusercontent.com/nodatahere/EthDevTools/master/ethersetup.sh;
+chmod +x ethersetup.sh;
+xfce4-terminal --maximize -e /home/$USER/ethersetup.sh;
+rm ethersetup.sh;
+
 exit;
