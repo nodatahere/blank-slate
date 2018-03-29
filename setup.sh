@@ -13,7 +13,7 @@ sudo apt upgrade -y;
 
 #make sure all xfce4 plugins on my template system are installed on target system
 sudo apt install -y xfce4-cpugraph-plugin xfce4-dict xfce4-indicator-plugin xfce4-mailwatch-plugin xfce4-netload-plugin xfce4-notes-plugin xfce4-places-plugin xfce4-power-manager-plugins xfce4-quicklauncher-plugin xfce4-sensors-plugin;
-sudo apt install -y xfce4-systemload-plugin xfce4-verve-plugin xfce4-weather-plugin xfce4-whiskermenu-plugin xfce4-xkb-plugin xfce4-diskperf-plugin
+sudo apt install -y xfce4-systemload-plugin xfce4-verve-plugin xfce4-weather-plugin xfce4-whiskermenu-plugin xfce4-xkb-plugin xfce4-diskperf-plugin xfpanel-switch;
 
 sudo apt install curl; #curl is sometimes not installed by default?
 
