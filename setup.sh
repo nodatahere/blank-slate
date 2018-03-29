@@ -15,7 +15,7 @@ sudo apt upgrade -y;
 sudo apt install -y xfce4-cpugraph-plugin xfce4-dict xfce4-indicator-plugin xfce4-mailwatch-plugin xfce4-netload-plugin xfce4-notes-plugin xfce4-places-plugin xfce4-power-manager-plugins xfce4-quicklauncher-plugin xfce4-sensors-plugin;
 sudo apt install -y xfce4-systemload-plugin xfce4-verve-plugin xfce4-weather-plugin xfce4-whiskermenu-plugin xfce4-xkb-plugin xfce4-diskperf-plugin xfpanel-switch;
 
-sudo apt install curl; #curl is sometimes not installed by default?
+sudo apt install python3; #make sure additional prereqs are installed
 
 #install programs I use on all my systems
 discordfile=/home/$USER/discord-0.0.4.deb; #set this to the path of your discord .deb file which you downloaded previously because discord's site lacks a direct download link that one can wget
@@ -65,13 +65,8 @@ echo "drivesync= '/storage/Google_Drive/sync.sh'" >> .bash_aliases;
 panel_archive=/home/$USER/Panel_Arrangement.tar.bz2; #path to the panel config archive
 wget https://github.com/nodatahere/blank-slate/raw/master/Panel_Arrangement.tar.bz2 $panel_archive; #download panel config archive
 echo "import $panel_archive in the xfce panel settings menu";
-#tar cvfz /home/$USER/panel_backup.tgz /home/$USER/.config/xfce4/panel; #back up panel settings
-#rm -rf /home/$USER/.config/xfce4/panel/*; #wipe panel config directory
-#mv /home/$USER/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml /home/$USER/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml.old; #back up old panel xml
-#wget https://raw.githubusercontent.com/nodatahere/blank-slate/master/xfce4-panel.xml /home/$USER/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml; #apply new panel xml
-#chmod 777 /home/$USER/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml;
-#tar xvjC /home/$USER/.config/xfce4/panel -f $panel_archive; #extract new config
-#xfce4-panel -r; #restart panel to apply changes
+python3 /usr/share/xfpanel-switch/xfpanel-switch/panelconfig.py save /home/$USER/Panel_Backup.tar.bz2; #back up panel settings
+python3 /usr/share/xfpanel-switch/xfpanel-switch/panelconfig.py load $panel_archive; #load panel config from downloaded archive
 
 #run ethersetup.sh from my LazyDevTools repo
 wget https://raw.githubusercontent.com/nodatahere/EthDevTools/master/ethersetup.sh;
