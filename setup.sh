@@ -18,7 +18,7 @@ sudo apt install -y xfce4-systemload-plugin xfce4-verve-plugin xfce4-weather-plu
 sudo apt install python3; #make sure additional prereqs are installed
 
 #install programs I use on all my systems
-discordfile=/home/$USER/discord-0.0.4.deb; #set this to the path of your discord .deb file which you downloaded previously because discord's site lacks a direct download link that one can wget
+discordfile=/home/$USER/Downloads/discord-0.0.4.deb; #set this to the path of your discord .deb file which you downloaded previously because discord's site lacks a direct download link that one can wget
 
 sudo apt install -y git grive spotify-client playonlinux steam; #desktop programs
 sudo apt install -y x11vnc ssh; #remote access programs
@@ -33,13 +33,13 @@ sudo apt -f install -y; #because dependencies always seem to have issues when in
 #programs built from github
 git clone https://github.com/Bionus/imgbrd-grabber.git /home/$USER/imgbrd-grabber; #imageboard browser program, danbooru, etc
 /home/$USER/imgbrd-grabber/build.sh; #build imgbrd-grabber
-sudo ln -s /home/brenden/imgbrd-grabber/release/Grabber /usr/bin/imgbrd-grabber; #let grabber be run globally
+sudo ln -s /home/$USER/imgbrd-grabber/release/Grabber /usr/bin/imgbrd-grabber; #let grabber be run globally
 
 #create /storage
 sudo mkdir /storage; #/storage is the mount point I use for extra internal drives, maintained as a folder of symlinks on my single-drive systems for consistency's sake
 sudo chown -R $USER /storage/Google_Drive; #give user ownership of /storage
 
-#set up grive to sync google google drive account at $drivefolder
+#set up grive to sync google google drive account at $drivefolder (default path /storage/Google_Drive, edit the line below this to change)
 drivefolder=/storage/Google_Drive;
 mkdir $drivefolder;
 #create sync script in drive folder
@@ -58,13 +58,11 @@ grive -a -p $drivefolder; #generate config files for grive
 
 
 #configure aliases
-echo "drivesync= '/storage/Google_Drive/sync.sh'" >> .bash_aliases;
+echo "drivesync='/storage/Google_Drive/sync.sh'" >> /home/$USER/.bash_aliases; #.bash_aliases file for all alias commands
 
-#update panel DOES NOT WORK RIGHT NOW
-#sudo killall xfconfd;
+#update panel
 panel_archive=/home/$USER/Panel_Arrangement.tar.bz2; #path to the panel config archive
 wget https://github.com/nodatahere/blank-slate/raw/master/Panel_Arrangement.tar.bz2 $panel_archive; #download panel config archive
-echo "import $panel_archive in the xfce panel settings menu";
 python3 /usr/share/xfpanel-switch/xfpanel-switch/panelconfig.py save /home/$USER/Panel_Backup.tar.bz2; #back up panel settings
 python3 /usr/share/xfpanel-switch/xfpanel-switch/panelconfig.py load $panel_archive; #load panel config from downloaded archive
 
@@ -76,7 +74,7 @@ sudo apt upgrade;
 sudo apt autoremove;
 
 #run ethersetup.sh from my LazyDevTools repo
-wget https://raw.githubusercontent.com/nodatahere/EthDevTools/master/ethersetup.sh;
+wget https://raw.githubusercontent.com/nodatahere/EthDevTools/master/ethersetup.sh /home/$USER/ethersetup.sh;
 chmod +x ethersetup.sh;
 xfce4-terminal --maximize -e /home/$USER/ethersetup.sh;
 rm ethersetup.sh;
