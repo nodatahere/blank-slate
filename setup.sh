@@ -20,7 +20,7 @@ sudo apt install python3; #make sure additional prereqs are installed
 #install programs I use on all my systems
 discordfile=/home/$USER/Downloads/discord-0.0.4.deb; #set this to the path of your discord .deb file which you downloaded previously because discord's site lacks a direct download link that one can wget
 
-sudo apt install -y git grive spotify-client playonlinux steam; #desktop programs
+sudo apt install -y git grive spotify-client playonlinux steam vlc redshift redshift-gtk lshw-gtk libreoffice; #desktop programs
 sudo apt install -y x11vnc ssh; #remote access programs
 
 #programs that lack repos but have .deb files
