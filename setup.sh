@@ -56,6 +56,7 @@ echo "grive -P -p $folder;" >> $drivefolder/sync.sh;
 echo "exit;" >> $drivefolder/sync.sh;
 grive -a -p $drivefolder; #generate config files for grive
 
+sudo chown -R $USER /storage;
 
 #configure aliases
 echo "drivesync='/storage/Google_Drive/sync.sh'" >> /home/$USER/.bash_aliases; #.bash_aliases file for all alias commands
@@ -73,10 +74,10 @@ sudo apt update;
 sudo apt upgrade;
 sudo apt autoremove;
 
-#run ethersetup.sh from my LazyDevTools repo
+#run ethersetup.sh from my EthDevTools repo
 wget https://raw.githubusercontent.com/nodatahere/EthDevTools/master/ethersetup.sh /home/$USER/ethersetup.sh;
 chmod +x ethersetup.sh;
-xfce4-terminal --maximize -e /home/$USER/ethersetup.sh;
+bash /home/$USER/ethersetup.sh;
 rm ethersetup.sh;
 
 exit;
