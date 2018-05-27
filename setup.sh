@@ -6,8 +6,8 @@ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0DF731E45
 echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list; #spotify repo
 wget -q "http://deb.playonlinux.com/public.gpg" -O- | sudo apt-key add -; #playonlinux keyserv
 sudo wget http://deb.playonlinux.com/playonlinux_xenial.list -O /etc/apt/sources.list.d/playonlinux.list; #playonlinux repo
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -; #docker gpg key
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"; #add docker repo
+#curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -; #docker gpg key
+#sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"; #add docker repo
 
 
 
@@ -24,7 +24,7 @@ sudo apt install python3; #make sure additional prereqs are installed
 #install programs I use on all my systems
 discordfile=/home/$USER/Downloads/discord-0.0.5.deb; #set this to the path of your discord .deb file which you downloaded previously because discord's site lacks a direct download link that one can wget
 
-sudo apt install -y git google-drive-ocamlfuse spotify-client playonlinux steam vlc redshift redshift-gtk lshw-gtk libreoffice docker-ce; #desktop programs
+sudo apt install -y git google-drive-ocamlfuse spotify-client playonlinux steam vlc redshift redshift-gtk lshw-gtk libreoffice; #desktop programs
 sudo apt install -y x11vnc ssh; #remote access programs
 
 #programs that lack repos but have .deb files
