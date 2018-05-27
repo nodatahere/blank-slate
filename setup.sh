@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #add any and all additional repos
-sudo add-apt-repository ppa:allesandro-strada/ppa; #adds oacmlfuse google drive client ppa
+sudo add-apt-repository ppa:alessandro-strada/ppa; #adds oacmlfuse google drive client ppa
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0DF731E45CE24F27EEEB1450EFDC8610341D9410; #keyserver for spotify package
 echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list; #spotify repo
 wget -q "http://deb.playonlinux.com/public.gpg" -O- | sudo apt-key add -; #playonlinux keyserv
