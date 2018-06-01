@@ -35,7 +35,7 @@ sudo dpkg -i $discordfile; #i also think discord should put up a repo
 sudo apt -f install -y; #because dependencies always seem to have issues when installing from a .deb
 
 #programs built from github
-wget https://raw.githubusercontent.com/nodatahere/blank-slate/raw/master/gitprograms.sh /home/$USER/gitprograms.sh;
+wget https://raw.githubusercontent.com/nodatahere/blank-slate/raw/master/gitprograms.sh -O /home/$USER/gitprograms.sh;
 chmod +x /home/$USER/gitprograms.sh;
 bash /home/$USER/gitprograms.sh;
 rm /home/$USER/gitprograms.sh;
@@ -71,7 +71,7 @@ echo "drivesync='/storage/Google_Drive/sync.sh'" >> /home/$USER/.bash_aliases; #
 sudo usermod -aG ${USER};
 
 #update panel
-wget https://raw.githubusercontent.com/nodatahere/blank-slate/master/panelset.sh /home/$USER/panelset.sh;
+wget https://raw.githubusercontent.com/nodatahere/blank-slate/master/panelset.sh -O /home/$USER/panelset.sh;
 chmod +x /home/$USER/panelset.sh;
 bash /home/$USER/panelset.sh;
 rm /home/$USER/panelset.sh;
@@ -84,7 +84,7 @@ sudo apt upgrade;
 sudo apt autoremove;
 
 #run ethersetup.sh from my EthDevTools repo
-wget https://raw.githubusercontent.com/nodatahere/EthDevTools/master/ethersetup.sh /home/$USER/ethersetup.sh;
+wget https://raw.githubusercontent.com/nodatahere/EthDevTools/master/ethersetup.sh -O /home/$USER/ethersetup.sh;
 chmod +x ethersetup.sh;
 bash /home/$USER/ethersetup.sh;
 rm /home/$USER/ethersetup.sh;
