@@ -7,6 +7,9 @@ echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sourc
 wget -q "http://deb.playonlinux.com/public.gpg" -O- | sudo apt-key add -; #playonlinux keyserv
 sudo wget http://deb.playonlinux.com/playonlinux_xenial.list -O /etc/apt/sources.list.d/playonlinux.list; #playonlinux repo
 sudo add-apt-repository ppa:alexlarsson/flatpak; #add flatpak ppa
+ver=$(lsb_release -sr); if [ $ver != "18.04" -a $ver != "17.10" -a $ver != "17.04" -a $ver != "16.04" ]; then ver=18.04; fi #select version for lutris repo
+echo "deb http://download.opensuse.org/repositories/home:/strycore/xUbuntu_$ver/ ./" | sudo tee /etc/apt/sources.list.d/lutris.list; #add  lutris repo to sources list
+wget -q http://download.opensuse.org/repositories/home:/strycore/xUbuntu_$ver/Release.key -O- | sudo apt-key add - #add repo key for lutris
 #curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -; #docker gpg key
 #sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"; #add docker repo
 
@@ -25,7 +28,7 @@ sudo apt install python3; #make sure additional prereqs are installed
 #install programs I use on all my systems
 discordfile=/home/$USER/Downloads/discord-0.0.5.deb; #set this to the path of your discord .deb file which you downloaded previously because discord's site lacks a direct download link that one can wget
 
-sudo apt install -y git google-drive-ocamlfuse spotify-client playonlinux steam vlc redshift redshift-gtk lshw-gtk libreoffice flatpak; #desktop programs
+sudo apt install -y git google-drive-ocamlfuse spotify-client playonlinux steam vlc redshift redshift-gtk lshw-gtk libreoffice flatpak lutris remmina; #desktop programs
 sudo apt install -y x11vnc ssh; #remote access programs
 
 #programs that lack repos but have .deb files
